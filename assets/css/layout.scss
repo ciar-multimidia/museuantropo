@@ -1,0 +1,178 @@
+@charset "UTF-8";
+
+@import 'bourbon/bourbon';
+@import 'normalize';
+@import 'fontface';
+
+
+/****************************************
+ ----------------------------------------
+ * VARIAVEIS *
+ ----------------------------------------
+ ****************************************/
+
+$cor1: #222; // preto
+$cor2: #dd1d47; // vermelho
+$cor3: #dd4b1d; // laranja
+
+$fonte-texto: 'Noto Serif',serif;
+$fonte-titulos: 'Montserrat',sans-serif;
+
+@mixin tam-container() {
+	width: 1110px;
+	margin-right: auto;
+	margin-left: auto;
+	position: relative;
+	padding-left: 10px;
+	padding-right: 10px;
+
+	* {position: relative;}
+}
+
+@mixin tam-conteudo() {
+	width: 800px;
+	margin-right: auto;
+	margin-left: auto;
+	position: relative;
+	padding-left: 10px;
+	padding-right: 10px;
+
+	* {position: relative;}
+}
+
+@mixin flex($dir) {
+    @include display(flex);
+    @include flex-wrap(wrap);
+    @include flex-direction(row);
+    @include justify-content($dir);
+}
+
+
+/****************************************
+ ----------------------------------------
+ * LAYOUT *
+ ----------------------------------------
+ ****************************************/
+
+html {overflow-x: hidden}
+
+body {
+	background: #f9f9f9;
+	font-size: 17px;
+	line-height: 1.7;
+	overflow-x: hidden; 
+	font-family: $fonte-texto;
+	font-weight: normal;
+}
+
+a, a:link, a:hover, a:active, a:focus {
+	color: $cor2;
+	text-decoration: none;
+}
+
+////////////////////////////////////// CABECALHO
+header {
+	@include tam-container();
+	background: $cor1;
+	height: 170px;
+	margin-bottom: 35px;
+
+	&:before {
+		content: "";
+		position: absolute;
+		background: $cor1;
+		width: 100vw;
+		height: 100%;
+		left: 50%;
+		@include transform(translateX(-50%));
+	}
+
+	a.marca {
+		top: 50%;
+		display: block;
+		position: absolute;
+		@include transform(translateY(-50%));
+
+		img {max-height: 130px;}
+	}
+}
+
+////////////////////////////////////// PRINCIPAL
+main {
+	padding-bottom: 80px;
+
+	p, blockquote {
+		@include tam-conteudo();
+		margin-bottom: 25px;
+		hyphens: auto;
+	}
+
+	h1, h2, h3, h4, h5 {
+		@include tam-container();
+		margin-top: 25px;
+		margin-bottom: 25px;
+		font-weight: bold;
+		line-height: 1.4;
+		font-family: $fonte-titulos;
+		text-transform: uppercase;
+		color: $cor1;
+		z-index: 2;
+		letter-spacing: 0.05em;
+	}
+
+	h1 {
+		margin-top: 0;
+		margin-bottom: 0;
+		font-weight: 800;
+		position: relative;
+
+		&:before {
+			content: "";
+			width: 100px;
+			height: 50px;
+			position: absolute;
+			top: 50%;
+			left: -50px;
+			background: lighten($cor1,75%);
+			@include transform(translateY(-50%));
+			z-index: -1;
+		}
+
+		& + h2, & + h3 { margin-top: 15px; }
+		& + p, & + figure, & + table {margin-top: 50px;}
+	}
+
+	table {
+		@include tam-container();
+		margin-bottom: 25px;
+	}
+
+}
+
+
+////////////////////////////////////// FOOTER
+footer {
+	width: 100%;
+	height: 45px;
+	background: $cor1;
+	position: fixed;
+	bottom: 0;
+	color: #fff;
+
+	& > div {
+		@include tam-container();
+		@include flex(space-between);
+		line-height: 45px;
+
+		a, a:link {
+			color: #fff;
+			font-family: $fonte-titulos;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+
+			&:hover {
+				color: $cor3;
+			}
+		}
+	}
+}
