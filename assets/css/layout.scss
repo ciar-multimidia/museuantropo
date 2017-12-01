@@ -131,7 +131,7 @@ main {
 				position: absolute;
 				top: 0;
 				left: 0;
-				background: lighten($cor1,75%);
+				background: lighten($cor1,80%);
 				@include transform(translate(-50%));
 				z-index: -1;
 			}
@@ -182,8 +182,94 @@ main {
 	}
 
 	table {
+		border-top: 2px solid lighten($cor1, 40%);
+		border-bottom: 2px solid lighten($cor1, 40%);
+		font-size: 0.8em;
+		line-height: 1.4;
 		@include tam-container();
-		margin-bottom: 25px;
+		margin-top: 100px;
+		margin-bottom: 100px;
+		border-collapse: collapse;
+
+
+		caption{
+			width: 100%;
+			text-align: center;
+		}
+
+		td{
+			&:first-child{
+				text-align: left;
+			}
+		}
+
+		th{
+			
+		}
+
+		th, td{
+			padding: 0.7em;
+			text-align: center;
+			&:first-child{
+				padding-left: 1.4em;
+			}
+
+			&:last-child{
+				padding-right: 1em;
+			}
+		}
+
+		thead{
+			background-color: lighten($cor1, 80%);
+
+			tr{
+				&:first-child{
+					th{
+						&:first-child{
+							text-align: left;
+						}
+					}
+				}
+			}
+
+			th{
+				border-bottom: 1px solid lighten($cor1, 40%);
+			}
+		}
+
+		tbody{
+			tr{
+				border-bottom: 1px solid transparentize(black, 0.8);
+			}
+		}
+
+		tfoot{
+			font-weight: bold;
+			border-top: 1px solid lighten($cor1, 40%);
+			background-color: lighten($cor1, 80%);
+		}
+	}
+
+	section.imagens{
+		@include display(flex);
+		@include justify-content(center);
+		a{
+			width: 300px;
+			height: 300px;
+			background-size: cover;
+			background-position: center center;
+		}
+
+		&.i1{}
+		&.i2{}
+		&.i3{
+			@include justify-content(space-between);
+			a{
+				width: 250px;
+				height: 250px;
+			}
+
+		}
 	}
 
 }
