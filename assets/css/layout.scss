@@ -104,6 +104,7 @@ main {
 	p, blockquote, ul, ol {
 		@include tam-conteudo();
 		margin-bottom: 25px;
+		margin-top: 0;
 		// text-align: justify;
 		// hyphens: auto;
 	}
@@ -117,10 +118,29 @@ main {
 	}
 
 	ul, ol {
-		li blockquote {
-			max-width: 100%;
+		list-style-type: square;
+		
+		li {
+			position: relative;
+			margin-bottom: 25px;
 
-			p {width: 100%;}
+			&:before {
+				content: "";
+				width: 70px;
+				height: 30px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				background: lighten($cor1,75%);
+				@include transform(translate(-50%));
+				z-index: -1;
+			}
+
+			blockquote {
+				max-width: 100%;
+
+				p {width: 100%;}
+			}
 		}
 	}
 
