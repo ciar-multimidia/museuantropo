@@ -609,6 +609,17 @@ main {
     border-collapse: collapse; }
     main table * {
       position: relative; }
+    main table.thead-fixo {
+      position: fixed;
+      top: 0;
+      margin: 0;
+      border-bottom: none;
+      z-index: 2;
+      display: none; }
+      main table.thead-fixo tbody, main table.thead-fixo tfoot, main table.thead-fixo caption {
+        display: none; }
+      main table.thead-fixo.db {
+        display: table; }
     main table caption {
       width: 100%;
       text-align: center; }
@@ -718,10 +729,18 @@ main {
       -ms-justify-content: space-between;
       -o-justify-content: space-between;
       justify-content: space-between;
-      -ms-flex-pack: justify; }
+      -ms-flex-pack: justify;
+      -webkit-box-lines: multiple;
+      -moz-box-lines: multiple;
+      box-lines: multiple;
+      -webkit-flex-wrap: wrap;
+      -moz-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
       main section.imagens.mais-de-3-anexos a {
         width: 250px;
-        height: 250px; }
+        height: 250px;
+        margin-bottom: 1em; }
 
 footer {
   width: 100%;
