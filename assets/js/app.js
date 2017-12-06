@@ -2,7 +2,7 @@ jQuery(document).ready(function($) {
 	var $tabelas = $('table');
 
 	$tabelas.each(function(index, el) {
-		var $clonethead = $(el).find('thead').clone();
+		var $clonethead = $(el).find('caption, thead').clone();
 		var $replicathead = $('<table></table>').append($clonethead);
 		$replicathead.addClass('thead-fixo');
 		$(el).after($replicathead);
@@ -11,6 +11,7 @@ jQuery(document).ready(function($) {
 	var $theadsFixos = $('.thead-fixo');
 	var posicoesTabelas = [];
 	var posicionarTheadsFixo = function(){
+		console.log('reposicionado');
 		$tabelas.each(function(index, el) {
 			var $tableEquiv = $theadsFixos.eq(index);
 			var $theadEquiv = $tableEquiv.children('thead');
@@ -23,7 +24,7 @@ jQuery(document).ready(function($) {
 			$tableEquiv.css('left', $(el).offset().left);
 
 			posicoesTabelas[index] = {
-				'inicio': $(el).find('thead').offset().top,
+				'inicio': $(el).offset().top,
 				'fim': $(el).offset().top + $(el).height() - $tableEquiv.height()
 			}
 		});
@@ -49,4 +50,5 @@ jQuery(document).ready(function($) {
 	});
 
 	posicionarTheadsFixo();
+	$(window).on('load', posicionarTheadsFixo);
 });

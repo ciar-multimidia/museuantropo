@@ -466,7 +466,8 @@ body {
   line-height: 1.7;
   overflow-x: hidden;
   font-family: "Noto Serif", serif;
-  font-weight: normal; }
+  font-weight: normal;
+  color: #222; }
 
 a, a:link, a:hover, a:active, a:focus {
   color: #dd1d47;
@@ -510,6 +511,18 @@ header {
 
 main {
   padding-bottom: 80px; }
+  main article {
+    position: relative; }
+  main span.pagina {
+    position: absolute;
+    left: 20px;
+    font-family: "Montserrat", sans-serif;
+    color: #b3b3b3;
+    font-size: 1.5em;
+    line-height: 1.4; }
+    @media (min-width: 1600px) {
+      main span.pagina {
+        font-size: 2vw; } }
   main p, main blockquote, main ul, main ol {
     width: 800px;
     margin-right: auto;
@@ -594,6 +607,7 @@ main {
     main h1 + p, main h1 + figure, main h1 + table {
       padding-top: 50px; }
   main table {
+    position: static;
     border-top: 2px solid #888888;
     border-bottom: 2px solid #888888;
     font-size: 0.8em;
@@ -610,13 +624,16 @@ main {
     main table * {
       position: relative; }
     main table.thead-fixo {
+      background: #f9f9f9;
       position: fixed;
       top: 0;
       margin: 0;
       border-bottom: none;
       z-index: 2;
       display: none; }
-      main table.thead-fixo tbody, main table.thead-fixo tfoot, main table.thead-fixo caption {
+      main table.thead-fixo caption {
+        background: #f9f9f9; }
+      main table.thead-fixo tbody, main table.thead-fixo tfoot {
         display: none; }
       main table.thead-fixo.db {
         display: table; }
