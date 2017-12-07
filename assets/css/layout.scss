@@ -172,7 +172,6 @@ main {
 		font-weight: bold;
 		line-height: 1.4;
 		font-family: $fonte-titulos;
-		text-transform: uppercase;
 		color: $cor1;
 		z-index: 2;
 		letter-spacing: 0.05em;
@@ -183,6 +182,8 @@ main {
 		padding-bottom: 0;
 		font-weight: 800;
 		position: relative;
+		text-transform: uppercase;
+		
 
 		&:before {
 			content: "";
@@ -204,7 +205,7 @@ main {
 		position: static;
 		border-top: 2px solid lighten($cor1, 40%);
 		border-bottom: 2px solid lighten($cor1, 40%);
-		font-size: 0.8em;
+		font-size: 0.7em;
 		line-height: 1.4;
 		@include tam-container();
 		margin-top: 100px;
@@ -384,6 +385,122 @@ footer {
 
 			&:hover {
 				color: $cor3;
+			}
+		}
+	}
+}
+
+
+////////////////////////////////////// SUMÁRIO
+
+
+#sumario{
+	width: 400px;
+	max-height: calc(100vh - 100px);
+	height: 500px;
+	position: fixed;
+	bottom: 50px;
+	left: 50%;
+	@include transform(translateX(-50%));
+	@include transform-origin(50% 100%);
+	background-color: $cor1;
+	white-space: nowrap;
+	overflow-x: auto;
+	overflow-y: hidden;
+	.itens{
+		// padding: 0.5em;
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+		white-space: normal;
+		overflow-y: scroll;
+		vertical-align: top;
+
+	}
+
+	h2{
+		color: #f9f9f9;
+		font-family: $fonte-titulos;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		font-size: 1em;
+		font-weight: normal;
+		line-height: 1;
+		margin: 0;
+		padding: 0.5em;
+		border-bottom: 2px solid;
+		text-align: center;
+
+	}
+	a{
+		font-size: 0.8em;
+		color: #f9f9f9;
+		padding: 1em;
+		display: block;
+		border-bottom: 1px solid rgba(255,255,255, 0.3);
+		@include display(flex);
+		@include align-items(baseline);
+		span{
+			&:first-child{
+				font-size: 1em;
+				font-weight: bold;
+				margin-right: 0.5em;
+				font-family: $fonte-titulos;
+			}
+		}
+
+		&:hover{
+			color: $cor3;
+		}
+
+		&.submenu{
+			&:after{
+				content: '';
+				line-height: 0;
+				display: block;
+				@include align-self(center);
+				width: 0.75em;
+				height: 1.5em;
+				margin-left: 1em;
+				background-image: url(../img/icon-seta-right.svg);
+				background-size: contain;
+				background-position: right center;
+				background-repeat: no-repeat;
+			}
+
+			&:hover:after{
+				background-image: url(../img/icon-seta-right-laranja.svg);
+			}
+		}
+
+		&.backmenu{
+			border-bottom: 2px solid #f9f9f9;
+			// font-size: 1em;
+			@include align-items(center);
+
+			span{
+				font-family: $fonte-titulos;
+				&:first-child{
+					font-size: 2em;
+					font-weight: 1.5em;
+				}
+			}
+			&:before{
+				content: '';
+				line-height: 0;
+				display: block;
+				@include align-self(center);
+				width: 0.75em;
+				height: 1.5em;
+				margin-right: 1em;
+				background-image: url(../img/icon-seta-left.svg);
+				background-size: contain;
+				background-position: right center;
+				background-repeat: no-repeat;
+			}
+
+			&:hover:before{
+				background-image: url(../img/icon-seta-left-laranja.svg);
 			}
 		}
 	}

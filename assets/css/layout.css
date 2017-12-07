@@ -577,7 +577,6 @@ main {
     font-weight: bold;
     line-height: 1.4;
     font-family: "Montserrat", sans-serif;
-    text-transform: uppercase;
     color: #222;
     z-index: 2;
     letter-spacing: 0.05em; }
@@ -587,7 +586,8 @@ main {
     padding-top: 0;
     padding-bottom: 0;
     font-weight: 800;
-    position: relative; }
+    position: relative;
+    text-transform: uppercase; }
     main h1:before {
       content: "";
       width: 100px;
@@ -610,7 +610,7 @@ main {
     position: static;
     border-top: 2px solid #888888;
     border-bottom: 2px solid #888888;
-    font-size: 0.8em;
+    font-size: 0.7em;
     line-height: 1.4;
     width: 1110px;
     margin-right: auto;
@@ -816,5 +816,125 @@ footer {
       letter-spacing: 0.05em; }
       footer > div a:hover, footer > div a:link:hover {
         color: #dd4b1d; }
+
+#sumario {
+  width: 400px;
+  max-height: calc(100vh - 100px);
+  height: 500px;
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  -webkit-transform-origin: 50% 100%;
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -o-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background-color: #222;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden; }
+  #sumario .itens {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    white-space: normal;
+    overflow-y: scroll;
+    vertical-align: top; }
+  #sumario h2 {
+    color: #f9f9f9;
+    font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 1em;
+    font-weight: normal;
+    line-height: 1;
+    margin: 0;
+    padding: 0.5em;
+    border-bottom: 2px solid;
+    text-align: center; }
+  #sumario a {
+    font-size: 0.8em;
+    color: #f9f9f9;
+    padding: 1em;
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -moz-box-align: baseline;
+    box-align: baseline;
+    -webkit-align-items: baseline;
+    -moz-align-items: baseline;
+    -ms-align-items: baseline;
+    -o-align-items: baseline;
+    align-items: baseline;
+    -ms-flex-align: baseline; }
+    #sumario a span:first-child {
+      font-size: 1em;
+      font-weight: bold;
+      margin-right: 0.5em;
+      font-family: "Montserrat", sans-serif; }
+    #sumario a:hover {
+      color: #dd4b1d; }
+    #sumario a.submenu:after {
+      content: '';
+      line-height: 0;
+      display: block;
+      -webkit-align-self: center;
+      -moz-align-self: center;
+      align-self: center;
+      -ms-flex-item-align: center;
+      width: 0.75em;
+      height: 1.5em;
+      margin-left: 1em;
+      background-image: url(../img/icon-seta-right.svg);
+      background-size: contain;
+      background-position: right center;
+      background-repeat: no-repeat; }
+    #sumario a.submenu:hover:after {
+      background-image: url(../img/icon-seta-right-laranja.svg); }
+    #sumario a.backmenu {
+      border-bottom: 2px solid #f9f9f9;
+      -webkit-box-align: center;
+      -moz-box-align: center;
+      box-align: center;
+      -webkit-align-items: center;
+      -moz-align-items: center;
+      -ms-align-items: center;
+      -o-align-items: center;
+      align-items: center;
+      -ms-flex-align: center; }
+      #sumario a.backmenu span {
+        font-family: "Montserrat", sans-serif; }
+        #sumario a.backmenu span:first-child {
+          font-size: 2em;
+          font-weight: 1.5em; }
+      #sumario a.backmenu:before {
+        content: '';
+        line-height: 0;
+        display: block;
+        -webkit-align-self: center;
+        -moz-align-self: center;
+        align-self: center;
+        -ms-flex-item-align: center;
+        width: 0.75em;
+        height: 1.5em;
+        margin-right: 1em;
+        background-image: url(../img/icon-seta-left.svg);
+        background-size: contain;
+        background-position: right center;
+        background-repeat: no-repeat; }
+      #sumario a.backmenu:hover:before {
+        background-image: url(../img/icon-seta-left-laranja.svg); }
 
 /*# sourceMappingURL=layout.css.map */
