@@ -54,6 +54,12 @@ $fonte-titulos: 'Montserrat',sans-serif;
  ----------------------------------------
  ****************************************/
 
+html, body{
+	&.blockscroll{
+		overflow: hidden;
+	}
+}
+
 html {overflow-x: hidden}
 
 body {
@@ -183,7 +189,7 @@ main {
 		font-weight: 800;
 		position: relative;
 		text-transform: uppercase;
-		
+
 
 		&:before {
 			content: "";
@@ -387,6 +393,8 @@ footer {
 				color: $cor3;
 			}
 		}
+
+		
 	}
 }
 
@@ -395,57 +403,129 @@ footer {
 
 
 #sumario{
-	width: 400px;
+	width: 600px;
 	max-height: calc(100vh - 100px);
-	height: 500px;
+	height: 45px;
+	@include transition(all 0.4s ease-out);
+	@include transition-property(height, border);
+	@include user-select(none);
 	position: fixed;
-	bottom: 50px;
+	bottom: 0;
+	border: 0px solid transparent;
+	border-bottom: none;
 	left: 50%;
 	@include transform(translateX(-50%));
 	@include transform-origin(50% 100%);
 	background-color: $cor1;
 	white-space: nowrap;
-	overflow-x: auto;
+	overflow-x: hidden;
 	overflow-y: hidden;
+
+	&.visivel{
+		height: 500px;
+		@include user-select(auto);
+		border: 1px solid #f9f9f9;
+		div.titulo{
+			height: 80px;
+			border-bottom-width: 4px;
+		}
+
+		.itens{
+			overflow-y: scroll;
+		}
+	}
+
+	&.segundo-menu{
+		.itens{
+			@include transform(translateX(-100%));
+		}
+	}
 	.itens{
-		// padding: 0.5em;
+		background-color: $cor1;
+		padding: 0em;
 		display: inline-block;
 		width: 100%;
 		height: 100%;
 		white-space: normal;
-		overflow-y: scroll;
+		overflow-y: hidden;
 		vertical-align: top;
+		// position: absolute;
+		// top: 0; left: 0;
+		@include transition-duration(0.4s);
+		@include transition-property(transform);
+		@include transition-timing-function(ease-out);
+
+		&.secundarios{
+		}
 
 	}
 
-	h2{
-		color: #f9f9f9;
-		font-family: $fonte-titulos;
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
-		font-size: 1em;
-		font-weight: normal;
-		line-height: 1;
-		margin: 0;
-		padding: 0.5em;
-		border-bottom: 2px solid;
-		text-align: center;
+	div.titulo{
+		width: 100%;
+		height: 45px;
+		@include transition(all 0.4s ease-out);
+		@include transition-property(height, border-bottom-width);
+		border-bottom: 0px solid #f9f9f9;
+		@include display(flex);
+		@include justify-content(center);
+		@include align-items(center);
+		
+		.btsumario{
+			@include appearance(none);
+			background: none;
+			border: none;
+			outline: none;
+			color: white;
+			// height: 100%;
+			font-family: $fonte-titulos;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			line-height: 1;
+			svg{
+				margin-right: 0.2em;
+				display: inline-block;
+				height: 0.8em;
+				width: auto;
+				vertical-align: middle;
 
+			}
+
+			&:hover {
+				color: $cor3;
+				cursor: pointer;
+				svg{
+					rect{
+						fill: $cor3;
+					}
+				}
+			}
+		}
 	}
+
+	
 	a{
 		font-size: 0.8em;
 		color: #f9f9f9;
-		padding: 1em;
+		padding: 0.8em 1em;
 		display: block;
 		border-bottom: 1px solid rgba(255,255,255, 0.3);
 		@include display(flex);
 		@include align-items(baseline);
+
+		&:last-child{
+			border-bottom: none;
+		}
+
 		span{
 			&:first-child{
 				font-size: 1em;
 				font-weight: bold;
 				margin-right: 0.5em;
 				font-family: $fonte-titulos;
+			}
+
+			&:nth-child(2){
+				@include flex-grow(1);
 			}
 		}
 
@@ -454,6 +534,7 @@ footer {
 		}
 
 		&.submenu{
+
 			&:after{
 				content: '';
 				line-height: 0;
@@ -474,7 +555,8 @@ footer {
 		}
 
 		&.backmenu{
-			border-bottom: 2px solid #f9f9f9;
+			height: 80px;
+			border-bottom: 4px solid #f9f9f9;
 			// font-size: 1em;
 			@include align-items(center);
 

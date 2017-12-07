@@ -51,4 +51,65 @@ jQuery(document).ready(function($) {
 
 	posicionarTheadsFixo();
 	$(window).on('load', posicionarTheadsFixo);
+
+
+
+
+
+
+	var $sumario = $('#sumario');
+	var $btsumario = $sumario.find('.btsumario');
+	var $htmlECorpo = $('html,body');
+
+	var abreFechaSumario = function(abreOuFecha){
+
+		if (abreOuFecha === 'abre') {
+			$sumario.addClass('visivel');
+		} else if(abreFechaSumario === 'fecha'){
+			$sumario.removeClass('visivel pode-ser-fechado segundo-menu').find('.itens').stop().animate({'scrollTop' : 0}, 400);
+		} else{
+			if ($sumario.hasClass('visivel')) {
+				$sumario.removeClass('visivel pode-ser-fechado segundo-menu').find('.itens').stop().animate({'scrollTop' : 0}, 400);
+			} else{
+				$sumario.addClass('visivel');
+			}
+		}
+	}
+
+	$btsumario.on('click', function(event) {
+		abreFechaSumario();
+	});
+
+	$sumario.find('.submenu').on('click', function(event) {
+		event.preventDefault();
+		$sumario.addClass('segundo-menu');
+	});
+
+	$sumario.find('.backmenu').on('click', function(event) {
+		event.preventDefault();
+		$sumario.removeClass('segundo-menu');
+	});
+
+	var transitionendPrefixed = 'transitionend webkitTransitionEnd oTransitionEnd otransitionend';
+
+	$sumario.on(transitionendPrefixed, function(event) {
+
+		if ($(this).is(event.target)) {
+			if ($(this).hasClass('visivel') ) {
+				$(this).addClass('pode-ser-fechado');
+			}
+
+			$(this).removeClass('segundo-menu').find('.itens').scrollTop(0);
+		}
+
+		
+	});
+
+	$('body').on('click', function(event) {
+		if ($sumario.hasClass('pode-ser-fechado') && $(event.target).closest('#sumario').length === 0){
+			abreFechaSumario('fecha');
+		}
+	});
+
+	
 });
