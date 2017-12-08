@@ -78,7 +78,7 @@ a, a:link, a:hover, a:active, a:focus {
 }
 
 ////////////////////////////////////// CABECALHO
-header {
+header:not(#abertura){
 	@include tam-container();
 	background:  url(../img/bg.jpg);
 	height: 170px;
@@ -103,6 +103,126 @@ header {
 		img {max-height: 130px;}
 	}
 }
+
+////////////////////////////////////// ABERTURA
+
+#abertura{
+	height: 100vh;
+	min-height: 800px;
+	width: 100%;
+	background:  url(../img/bg.jpg);
+	position: relative;
+	@include display(flex);
+	@include justify-content(center);
+	@include align-items(center);
+	@include keyframes(fundoRodando){
+		to{
+			background-position: 604px 443px;
+		}
+	}
+	@include animation(fundoRodando 60s linear 0s infinite);
+
+
+	.container{
+		margin: 0 auto;
+		width: 480px;
+
+		@include keyframes(aparece){
+			from{
+				opacity: 0;
+			}
+			to{
+				opacity: 1;
+			}
+		}
+
+		@include keyframes(voltaProLugar){
+			to{
+				@include transform(translate(0px, 0px));
+			}
+		}
+
+		h1{
+			color: #f9f9f9;
+			font-family: $fonte-texto;
+			font-weight: normal;
+			font-size: 1em;
+			text-align: justify;
+			opacity: 0;
+			span{
+				text-align: center;
+				display: block;
+				font-weight: bold;
+			}
+			@include animation(aparece 0.5s linear 3s 1 normal forwards);
+		}
+
+		
+
+		svg{
+			overflow: visible;
+			path{
+				fill: #f9f9f9
+			}
+			g{
+				&:nth-child(1){
+					& > *{
+						opacity: 0;
+						@include animation(
+							aparece 0.5s linear 0s 1 normal forwards,
+							voltaProLugar 3s $ease-out-quint 0s 1 normal forwards
+						);
+
+						$tempo-base: 0.2s;
+						$acrescimo: 0.2s;
+
+						&:nth-child(1){
+							@include transform(translate(45px, 0));
+							@include animation-delay(#{ $tempo-base + $acrescimo * 4})
+						}
+
+						&:nth-child(2){
+							@include transform(translate(0, 45px));
+							@include animation-delay(#{ $tempo-base + $acrescimo * 3})
+						}
+
+						&:nth-child(3){
+							@include transform(translate(0px, -45px));
+							@include animation-delay(#{ $tempo-base + $acrescimo * 2})
+						}
+
+						&:nth-child(4){
+							@include transform(translate(0, 45px));
+							@include animation-delay(#{ $tempo-base + $acrescimo * 1})
+
+						}
+
+						&:nth-child(5){
+							@include transform(translate(-45px, 0));
+							@include animation-delay(#{ $tempo-base + $acrescimo * 0})
+						}
+					}
+				}
+
+				&:nth-child(2){
+					& > *{
+						opacity: 0;
+						@include animation(aparece 0.5s linear 0s 1 normal forwards);
+
+						$tempo-base: 2;
+						$acrescimo: 0.05;
+						@for $i from 1 through 13 {
+							&:nth-child(#{14 - $i}) {
+								@include animation-delay( #{ $tempo-base +($i - 1) * $acrescimo }s )
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 
 ////////////////////////////////////// PRINCIPAL
 main {
@@ -241,7 +361,8 @@ main {
 
 		caption{
 			width: 100%;
-			text-align: center;
+			text-align: left;
+			padding: 0.5em 0;
 		}
 
 		td{
@@ -489,7 +610,7 @@ footer {
 				display: inline-block;
 				height: 0.8em;
 				width: auto;
-				vertical-align: middle;
+				vertical-align: baseline;
 
 			}
 

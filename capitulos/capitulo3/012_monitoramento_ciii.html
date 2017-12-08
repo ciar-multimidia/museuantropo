@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+	<base href="../">
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Museu Antropológico</title>
-	<link rel="stylesheet" href="../../assets/css/layout.css">
+	<link rel="stylesheet" href="../assets/css/layout.css">
 </head>
 <body>
 	
 <header>
-	<a href="../index.html" class="marca"><img src="../../assets/img/marca_colecao.svg" alt="Coleção - Museu Antropológico - Volume 3"></a>
+	<a href="index.html" class="marca"><img src="../assets/img/marca_colecao.svg" alt="Coleção - Museu Antropológico - Volume 3"></a>
 </header>
 
 <main>
@@ -21,7 +22,7 @@
 			<h2>3.12 Estudo do Patrimônio Arqueológico e Arquitetônico da área de influência da Linha de Transmissão 138Kv Corumbá III/MANGUEIRAL, Goiás/Distrito Federal (PA-SALV-LT138KV-CIii/Mang)</h2>
 
     <section class="imagens">
-      <a href="imagens/fig26.pdf" target="blank" style="background-image: url('imagens/thumb_fig26.jpg')">
+      <a href="capitulo3/imagens/fig26.pdf" target="blank" style="background-image: url('capitulo3/imagens/thumb_fig26.jpg')">
         <span class="numero">Fig. 26</span>
       </a>
     </section>
@@ -144,13 +145,65 @@
 
 <footer>
 	<div>
-		<a href="011_lt138kv_ciii.html">Anterior</a>
-		<a href="013_perdigao.html">Próximo</a>
+		<a href="capitulo3/011_lt138kv_ciii.html">Anterior</a>
+		<a href="capitulo3/013_perdigao.html">Próximo</a>
 	</div>
 </footer>
 
-<script src="../../assets/js/jquery-3.2.1.min.js"></script>
-<script src="../../assets/js/app.js"></script>
+<nav id="sumario">
+
+	<section class="itens primarios">
+		<div class="titulo">
+			<button class="btsumario">
+				<svg viewbox='0 0 40 40'>
+					<rect fill='white' rx='5' ry='5' x='0' y='0' width='40' height='10'/> 
+					<rect fill='white' rx='5' ry='5' x='0' y='15' width='40' height='10'/> 
+					<rect fill='white' rx='5' ry='5' x='0' y='30' width='40' height='10'/> 
+				</svg>
+				Sumário
+			</button>
+		</div>
+		<a href="index.html">Apresentação</a>
+		<a href="inventario.html">Inventário: Entre registros e salvaguarda</a>
+		<a href="capitulo1/index.html"><span>1</span> <span>O “Patrimônio Cultural” e os bens de natureza material</span></a>
+		<a href="capitulo2/index.html"><span>2</span> <span>Reserva técnica de arqueologia – salas Judite Ivanir Breda: Metodologias de gestão e salvaguarda</span></a>
+		<a href="" class="submenu" data-reveals='cap3'><span>3</span> <span>Projetos arqueológicos – em foco o acervo patrimonial</span> </a>
+		<a href="inventariando.html">Inventariando: Reflexões e continuidade</a>
+		<a href="referencias.html">Referências Bibliográficas</a>
+		<a href="anexos.html">Anexos</a>
+		<a href="mosaicos.html">Mosaicos</a>
+	</section><section class="itens secundarios" data-name='cap3'>
+		<a href='' class="backmenu"><span>3</span> <span>Projetos arqueológicos – em foco o acervo patrimonial</span></a>
+		<a href="capitulo3/index.html">Texto Introdutório</a>
+		<a href='capitulo3/001_serra_da_mesa.html'><span>3.1</span> Projeto de salvamento arqueológico pré-histórico da usina hidrelétrica de Serra da Mesa (PA-SALV-SM)</a>
+		<a href='capitulo3/002_cana_brava.html'><span>3.2</span> Projeto de salvamento arqueológico da UHE Cana Brava (PA-SALV-CB)</a>
+		<a href='capitulo3/003_sao_salvador.html'><span>3.3</span> Projeto de salvamento arqueológico do AHE São Salvador (PA-SALV-SS)</a>
+		<a href='capitulo3/004_to_020.html'><span>3.4</span> Projeto de levantamento e resgate arqueológico da rodovia TO-020 (Palmas – Aparecida do Rio Negro/TO) (PA-SALV-TO-020)</a>
+		<a href='capitulo3/005_vcniquelandia.html'><span>3.5</span> Projeto levantamento e salvamento arqueológico da via Contorno de Niquelândia (PA-SALV-VCN)</a>
+		<a href='capitulo3/006_br080_414.html'><span>3.6</span> Projeto de levantamento, prospecção e salvamento arqueológico da rodovia BR-080 à BR-4144 (PA-SALV-BR-080/BR-414)</a>
+		<a href='capitulo3/007_to454_455.html'><span>3.7</span> Estudos arqueológicos para as obras de execução da rodovia TO-454/455, trecho: entroncamento TO-080 (KM 22) / entroncamento TO-255 (Porto Nacional)/TO (PA-SALV-TO 454/455)</a>
+		<a href='capitulo3/008_corumba_iv.html'><span>3.8</span> Projeto de salvamento arqueológico da UHE corumbá IV (PA-SALV-C/IV)</a>
+		<a href='capitulo3/009_lt138kv_civ.html'><span>3.9</span> Estudo do patrimônio arqueológico e arquitetônico da área de influência direta da linha de transmissão 138Kv Corumbá IV/subestação Santa Maria, no estado de Goiás e Distrito Federal (PA-SALV-LT138KV-CIV/SM)</a>
+		<a href='capitulo3/010_corumba_iii.html'><span>3.10</span> Projeto de salvamento arqueológico do AHE Corumbá III (PA-SALV-C/III)</a>
+		<a href='capitulo3/011_lt138kv_ciii.html'><span>3.11</span> Estudo do patrimônio arqueológico e arquitetônico da área de influência da linha de transmissão 138Kv Corumbá III/Mangueiral, Goiás/Distrito Federal (PA-SALV- LT138KV-C/III-MANG.)</a>
+		<a href='capitulo3/012_monitoramento_ciii.html'><span>3.12</span> Monitoramento arqueológico: proposta de proteção e preservação do patrimônio arqueológico do AHE Corumbá III (MA-PPPPA DO AHE CORUMBÁ III)</a>
+		<a href="capitulo3/013_perdigao.html"><span>3.13</span> Projeto de levantamento, prospecção e salvamento arqueológico da área de instalação da nova unidade industrial da Perdigão, município de Mineiros, estado de Goiás (PA-SALV-Perdigão/Mineiros)</a>
+		<a href="capitulo3/014_frc.html"><span>3.14</span> Projeto de salvamento arqueológico do aproveitamento hidrelétrico Foz do Rio Claro (PA-SALV-FRC)</a>
+		<a href="capitulo3/015_lt230kv_frc.html"><span>3.15</span> Estudo do patrimônio arqueológico e arquitetônico da Área de Influência Direta (AID) da linha de transmissão - LT 230 kv - SE (Subestação) UHE Foz do Rio Claro - SE de Itaguaçu (PA-SALV-LT230KV/FRC-SE Itaguaçu) (PA-SALV-LT 230KV/FRC-SE itaguaçu)</a>
+		<a href="capitulo3/016_srv.html"><span>3.16</span> Projeto de salvamento arqueológico do aproveitamento hidrelétrico Salto do Rio Verdinho (PA-SALV-SRV)</a>
+		<a href="capitulo3/017_salto.html"><span>3.17</span> Projeto de salvamento arqueológico do aproveitamento hidrelétrico Salto (PA-SALV-ST)</a>
+		<a href="capitulo3/018_cbc.html"><span>3.18</span> Projeto de salvamento: Levantamento, prospecção e escavação arqueológica do complexo hidrelétrico – AHE’s Caçu e Barra dos Coqueiros (PA-SALV-CBC)</a>
+		<a href="capitulo3/019_lt230_st_bc.html"><span>3.19</span> Estudo do patrimônio arqueológico e arquitetônico da área de influência direta da linha de transmissão 230KV Salto SE/Barra Dos Coqueiros (PA-SALV-LT230KV-ST/Barra dos Coqueiros)</a>
+		<a href="capitulo3/020_phc_retirinho.html"><span>3.20</span> Estudos arqueológicos: levantamento, prospecção e escavação arqueológica da PCH Retirinho (PA-SALV-R)</a>
+		<a href="capitulo3/021_.html"><span>3.21</span> Estudos arqueológicos: levantamento, prospecção e escavação arqueológica da PCH Guariroba (PA-SALV -G)</a>
+		<a href="capitulo3/022_.html"><span>3.22</span> Estudos arqueológicos: levantamento, prospecção e escavação arqueológica da PCH Tucano (PA-SALV -T)</a>
+		<a href="capitulo3/023_.html"><span>3.23</span> Arqueologia na sub-bacia do Rio Verde: As pequenas centrais hidrelétricas Taboca e Estrela – projeto de salvamento arqueológico (PA-SALV -TBC / PA-SALV -E)</a>
+
+	</section>
+</nav>
+
+<script src="../assets/js/jquery-3.2.1.min.js"></script>
+<script src="../assets/js/app.js"></script>
 
 </body>
 </html>
