@@ -80,14 +80,14 @@ a, a:link, a:hover, a:active, a:focus {
 ////////////////////////////////////// CABECALHO
 header {
 	@include tam-container();
-	background: $cor1;
+	background:  url(../img/bg.jpg);
 	height: 170px;
 	margin-bottom: 35px;
 
 	&:before {
 		content: "";
 		position: absolute;
-		background: $cor1;
+		background:  url(../img/bg.jpg);
 		width: 100vw;
 		height: 100%;
 		left: 50%;
@@ -113,15 +113,16 @@ main {
 	}
 
 	span.pagina{
+		z-index: 4;
 		position: absolute;
 		left: 20px;
 		font-family: $fonte-titulos;
 		color: #b3b3b3;
 		font-size: 1.5em;
-		line-height: 1.4;
+		line-height: 1em;
 		// font-weight: bold;
 		@media (min-width: 1600px){
-			font-size: 2vw;
+			font-size: 2.5vw;
 		}
 
 	}
@@ -224,7 +225,7 @@ main {
 			top: 0;
 			margin: 0;
 			border-bottom: none;
-			z-index: 2;
+			z-index: 3;
 			display: none;
 			caption{
 				background: #f9f9f9;
@@ -371,6 +372,7 @@ main {
 
 ////////////////////////////////////// FOOTER
 footer {
+	z-index: 5;
 	width: 100%;
 	height: 45px;
 	background: $cor1;
@@ -403,6 +405,7 @@ footer {
 
 
 #sumario{
+	z-index: 6;
 	width: 600px;
 	max-height: calc(100vh - 100px);
 	height: 45px;
@@ -424,7 +427,7 @@ footer {
 	&.visivel{
 		height: 500px;
 		@include user-select(auto);
-		border: 1px solid #f9f9f9;
+		border: 1px solid rgba(255,255,255,0.2);
 		div.titulo{
 			height: 80px;
 			border-bottom-width: 4px;

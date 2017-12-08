@@ -59,19 +59,26 @@ jQuery(document).ready(function($) {
 
 	var $sumario = $('#sumario');
 	var $btsumario = $sumario.find('.btsumario');
-	var $htmlECorpo = $('html,body');
+	var $htmlECorpo = $('html, body');
 
 	var abreFechaSumario = function(abreOuFecha){
-
 		if (abreOuFecha === 'abre') {
 			$sumario.addClass('visivel');
+			$htmlECorpo.addClass('blockscroll');
+
 		} else if(abreFechaSumario === 'fecha'){
 			$sumario.removeClass('visivel pode-ser-fechado segundo-menu').find('.itens').stop().animate({'scrollTop' : 0}, 400);
+			$htmlECorpo.removeClass('blockscroll');
+
 		} else{
+
 			if ($sumario.hasClass('visivel')) {
 				$sumario.removeClass('visivel pode-ser-fechado segundo-menu').find('.itens').stop().animate({'scrollTop' : 0}, 400);
+				$htmlECorpo.removeClass('blockscroll');
+
 			} else{
 				$sumario.addClass('visivel');
+				$htmlECorpo.addClass('blockscroll');
 			}
 		}
 	}
@@ -101,13 +108,19 @@ jQuery(document).ready(function($) {
 
 			$(this).removeClass('segundo-menu').find('.itens').scrollTop(0);
 		}
-
-		
 	});
 
 	$('body').on('click', function(event) {
 		if ($sumario.hasClass('pode-ser-fechado') && $(event.target).closest('#sumario').length === 0){
 			abreFechaSumario('fecha');
+		}
+	});
+
+	$(window).on('keyup', function(event) {
+		if (event.which === 27) {
+			if ($sumario.hasClass('pode-ser-fechado')) {
+				abreFechaSumario('fecha');
+			}
 		}
 	});
 
