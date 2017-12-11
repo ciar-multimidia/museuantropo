@@ -51,6 +51,7 @@ jQuery(document).ready(function($) {
 
 	posicionarTheadsFixo();
 	$(window).on('load', posicionarTheadsFixo);
+	setInterval(posicionarTheadsFixo, 10000);
 
 
 

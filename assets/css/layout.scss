@@ -14,6 +14,7 @@
 $cor1: #222; // preto
 $cor2: #dd1d47; // vermelho
 $cor3: #dd4b1d; // laranja
+$cor4: #f9f9f9; // branco
 
 $fonte-texto: 'Noto Serif',serif;
 $fonte-titulos: 'Montserrat',sans-serif;
@@ -63,7 +64,7 @@ html, body{
 html {overflow-x: hidden}
 
 body {
-	background: #f9f9f9;
+	background: $cor4;
 	font-size: 18px;
 	line-height: 1.7;
 	overflow-x: hidden; 
@@ -75,6 +76,11 @@ body {
 a, a:link, a:hover, a:active, a:focus {
 	color: $cor2;
 	text-decoration: none;
+}
+
+
+.colunas{
+	@include display(flex);
 }
 
 ////////////////////////////////////// CABECALHO
@@ -107,8 +113,9 @@ header:not(#abertura){
 ////////////////////////////////////// ABERTURA
 
 #abertura{
-	height: 100vh;
-	min-height: 800px;
+	padding: 4em 0 6em;
+	margin-bottom: 35px;
+	min-height: 100vh;
 	width: 100%;
 	background:  url(../img/bg.jpg);
 	position: relative;
@@ -117,15 +124,116 @@ header:not(#abertura){
 	@include align-items(center);
 	@include keyframes(fundoRodando){
 		to{
-			background-position: 604px 443px;
+			// background-position-x: 604px;
+			background-position-y: 443px;
 		}
 	}
-	@include animation(fundoRodando 60s linear 0s infinite);
+	@include animation(fundoRodando 40s linear 0s infinite);
 
 
 	.container{
+		display: block;
 		margin: 0 auto;
-		width: 480px;
+		width: 1110px;
+		@include display(flex);
+		@include flex-direction(column);
+		@include align-items(center);
+
+
+		
+
+		h1{
+			margin-top: 1em;
+			width: 800px;
+			color: $cor4;
+			font-family: $fonte-titulos;
+			font-weight: normal;
+			font-size: 1.2em;
+			text-align: justify;
+			opacity: 0;
+			text-shadow: 0px 0px 5px $cor1,
+						 0px 0px 5px $cor1;
+			span{
+				text-align: center;
+				display: block;
+				font-weight: bold;
+			}
+		}
+
+		
+
+		svg{
+			width: 800px;
+			overflow: visible;
+			path{
+				fill: $cor4;
+			}
+			g{
+				&:nth-child(1){
+					& > *{
+						opacity: 0;
+
+						&:nth-child(1){
+							@include transform(translate(45px, 0));
+						}
+
+						&:nth-child(2){
+							@include transform(translate(0, 45px));
+						}
+
+						&:nth-child(3){
+							@include transform(translate(0px, -45px));
+						}
+
+						&:nth-child(4){
+							@include transform(translate(0, 45px));
+
+						}
+
+						&:nth-child(5){
+							@include transform(translate(-45px, 0));
+						}
+					}
+				}
+
+				&:nth-child(2){
+					& > *{
+						opacity: 0;
+					}
+				}
+			}
+		}
+
+		@media (max-width: 1600px), (max-height: 1000px){
+			h1, svg{
+				width: 480px;
+			}
+		}
+
+		nav{
+			margin-top: 4em;
+			width: 480px;
+			@include display(flex);
+			@include justify-content(space-between);
+			a{
+				display: block;
+				padding: 1.5em;
+				width: 45%;
+				background-color: $cor1;
+				text-align: center;
+				font-size: 0.8em;
+				font-family: $fonte-titulos;
+				text-transform: uppercase;
+				color: $cor4;
+				border: 1px solid transparentize($cor4, 0.7);
+				&:hover{
+					color: $cor2;
+				}
+			}
+		}
+	}
+
+	&.carregouFundo{
 
 		@include keyframes(aparece){
 			from{
@@ -142,78 +250,55 @@ header:not(#abertura){
 			}
 		}
 
-		h1{
-			color: #f9f9f9;
-			font-family: $fonte-texto;
-			font-weight: normal;
-			font-size: 1em;
-			text-align: justify;
-			opacity: 0;
-			span{
-				text-align: center;
-				display: block;
-				font-weight: bold;
+		.container{
+
+			h1{
+				@include animation(aparece 0.5s linear 3s 1 normal forwards);
 			}
-			@include animation(aparece 0.5s linear 3s 1 normal forwards);
-		}
 
-		
+			svg{
+				g{
+					&:nth-child(1){
+						& > *{
+							@include animation(
+								aparece 0.5s linear 0s 1 normal forwards,
+								voltaProLugar 3s $ease-out-quint 0s 1 normal forwards
+							);
 
-		svg{
-			overflow: visible;
-			path{
-				fill: #f9f9f9
-			}
-			g{
-				&:nth-child(1){
-					& > *{
-						opacity: 0;
-						@include animation(
-							aparece 0.5s linear 0s 1 normal forwards,
-							voltaProLugar 3s $ease-out-quint 0s 1 normal forwards
-						);
+							$tempo-base: 0.2s;
+							$acrescimo: 0.2s;
 
-						$tempo-base: 0.2s;
-						$acrescimo: 0.2s;
+							&:nth-child(1){
+								@include animation-delay(#{ $tempo-base + $acrescimo * 4})
+							}
 
-						&:nth-child(1){
-							@include transform(translate(45px, 0));
-							@include animation-delay(#{ $tempo-base + $acrescimo * 4})
-						}
+							&:nth-child(2){
+								@include animation-delay(#{ $tempo-base + $acrescimo * 3})
+							}
 
-						&:nth-child(2){
-							@include transform(translate(0, 45px));
-							@include animation-delay(#{ $tempo-base + $acrescimo * 3})
-						}
+							&:nth-child(3){
+								@include animation-delay(#{ $tempo-base + $acrescimo * 2})
+							}
 
-						&:nth-child(3){
-							@include transform(translate(0px, -45px));
-							@include animation-delay(#{ $tempo-base + $acrescimo * 2})
-						}
+							&:nth-child(4){
+								@include animation-delay(#{ $tempo-base + $acrescimo * 1})
+							}
 
-						&:nth-child(4){
-							@include transform(translate(0, 45px));
-							@include animation-delay(#{ $tempo-base + $acrescimo * 1})
-
-						}
-
-						&:nth-child(5){
-							@include transform(translate(-45px, 0));
-							@include animation-delay(#{ $tempo-base + $acrescimo * 0})
+							&:nth-child(5){
+								@include animation-delay(#{ $tempo-base + $acrescimo * 0})
+							}
 						}
 					}
-				}
 
-				&:nth-child(2){
-					& > *{
-						opacity: 0;
-						@include animation(aparece 0.5s linear 0s 1 normal forwards);
-
-						$tempo-base: 2;
-						$acrescimo: 0.05;
-						@for $i from 1 through 13 {
-							&:nth-child(#{14 - $i}) {
-								@include animation-delay( #{ $tempo-base +($i - 1) * $acrescimo }s )
+					&:nth-child(2){
+						& > *{
+							@include animation(aparece 0.5s linear 0s 1 normal forwards);
+							$tempo-base: 2;
+							$acrescimo: 0.05;
+							@for $i from 1 through 13 {
+								&:nth-child(#{14 - $i}) {
+									@include animation-delay( #{ $tempo-base +($i - 1) * $acrescimo }s )
+								}
 							}
 						}
 					}
@@ -290,6 +375,25 @@ main {
 		}
 	}
 
+	ol{
+		list-style-type: none;
+		li{
+			counter-increment: lista-numerada;
+			&:before{
+				content: counter(lista-numerada)'.';
+				font-weight: bold;
+				padding-left: 0.5em;
+				// display: inline;
+				// width: auto;
+				// height: auto;
+				// position: static;
+				// top: none;
+				// left: none;
+				// @include transform(none);
+			}
+		}
+	}
+
 	h1, h2, h3, h4, h5 {
 		@include tam-container();
 		margin-top: 0;
@@ -340,7 +444,7 @@ main {
 		border-collapse: collapse;
 
 		&.thead-fixo{
-			background: #f9f9f9;
+			background: $cor4;
 			position: fixed;
 			top: 0;
 			margin: 0;
@@ -348,7 +452,7 @@ main {
 			z-index: 3;
 			display: none;
 			caption{
-				background: #f9f9f9;
+				background: $cor4;
 			}
 			tbody, tfoot{
 				display: none;
@@ -589,7 +693,7 @@ footer {
 		height: 45px;
 		@include transition(all 0.4s ease-out);
 		@include transition-property(height, border-bottom-width);
-		border-bottom: 0px solid #f9f9f9;
+		border-bottom: 0px solid $cor4;
 		@include display(flex);
 		@include justify-content(center);
 		@include align-items(center);
@@ -615,11 +719,11 @@ footer {
 			}
 
 			&:hover {
-				color: $cor3;
+				color: $cor2;
 				cursor: pointer;
 				svg{
 					rect{
-						fill: $cor3;
+						fill: $cor2;
 					}
 				}
 			}
@@ -629,7 +733,7 @@ footer {
 	
 	a{
 		font-size: 0.8em;
-		color: #f9f9f9;
+		color: $cor4;
 		padding: 0.8em 1em;
 		display: block;
 		border-bottom: 1px solid rgba(255,255,255, 0.3);
@@ -654,7 +758,7 @@ footer {
 		}
 
 		&:hover{
-			color: $cor3;
+			color: $cor2;
 		}
 
 		&.submenu{
@@ -680,7 +784,7 @@ footer {
 
 		&.backmenu{
 			height: 80px;
-			border-bottom: 4px solid #f9f9f9;
+			border-bottom: 4px solid $cor4;
 			// font-size: 1em;
 			@include align-items(center);
 

@@ -476,6 +476,23 @@ a, a:link, a:hover, a:active, a:focus {
   color: #dd1d47;
   text-decoration: none; }
 
+.colunas {
+  width: 1110px;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  .colunas * {
+    position: relative; }
+
 header:not(#abertura) {
   width: 1110px;
   margin-right: auto;
@@ -513,8 +530,9 @@ header:not(#abertura) {
       max-height: 130px; }
 
 #abertura {
-  height: 100vh;
-  min-height: 800px;
+  padding: 4em 0 6em;
+  margin-bottom: 35px;
+  min-height: 100vh;
   width: 100%;
   background: url(../img/bg.jpg);
   position: relative;
@@ -543,21 +561,136 @@ header:not(#abertura) {
   -o-align-items: center;
   align-items: center;
   -ms-flex-align: center;
-  -webkit-animation: fundoRodando 60s linear 0s infinite;
-  -moz-animation: fundoRodando 60s linear 0s infinite;
-  animation: fundoRodando 60s linear 0s infinite; }
+  -webkit-animation: fundoRodando 40s linear 0s infinite;
+  -moz-animation: fundoRodando 40s linear 0s infinite;
+  animation: fundoRodando 40s linear 0s infinite; }
 @-webkit-keyframes fundoRodando {
   to {
-    background-position: 604px 443px; } }
+    background-position-y: 443px; } }
 @-moz-keyframes fundoRodando {
   to {
-    background-position: 604px 443px; } }
+    background-position-y: 443px; } }
 @keyframes fundoRodando {
   to {
-    background-position: 604px 443px; } }
+    background-position-y: 443px; } }
   #abertura .container {
+    display: block;
     margin: 0 auto;
-    width: 480px; }
+    width: 1110px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -ms-flex-align: center; }
+    #abertura .container h1 {
+      margin-top: 1em;
+      width: 800px;
+      color: #f9f9f9;
+      font-family: "Montserrat", sans-serif;
+      font-weight: normal;
+      font-size: 1.2em;
+      text-align: justify;
+      opacity: 0;
+      text-shadow: 0px 0px 5px #222, 0px 0px 5px #222; }
+      #abertura .container h1 span {
+        text-align: center;
+        display: block;
+        font-weight: bold; }
+    #abertura .container svg {
+      width: 800px;
+      overflow: visible; }
+      #abertura .container svg path {
+        fill: #f9f9f9; }
+      #abertura .container svg g:nth-child(1) > * {
+        opacity: 0; }
+        #abertura .container svg g:nth-child(1) > *:nth-child(1) {
+          -webkit-transform: translate(45px, 0);
+          -moz-transform: translate(45px, 0);
+          -ms-transform: translate(45px, 0);
+          -o-transform: translate(45px, 0);
+          transform: translate(45px, 0); }
+        #abertura .container svg g:nth-child(1) > *:nth-child(2) {
+          -webkit-transform: translate(0, 45px);
+          -moz-transform: translate(0, 45px);
+          -ms-transform: translate(0, 45px);
+          -o-transform: translate(0, 45px);
+          transform: translate(0, 45px); }
+        #abertura .container svg g:nth-child(1) > *:nth-child(3) {
+          -webkit-transform: translate(0px, -45px);
+          -moz-transform: translate(0px, -45px);
+          -ms-transform: translate(0px, -45px);
+          -o-transform: translate(0px, -45px);
+          transform: translate(0px, -45px); }
+        #abertura .container svg g:nth-child(1) > *:nth-child(4) {
+          -webkit-transform: translate(0, 45px);
+          -moz-transform: translate(0, 45px);
+          -ms-transform: translate(0, 45px);
+          -o-transform: translate(0, 45px);
+          transform: translate(0, 45px); }
+        #abertura .container svg g:nth-child(1) > *:nth-child(5) {
+          -webkit-transform: translate(-45px, 0);
+          -moz-transform: translate(-45px, 0);
+          -ms-transform: translate(-45px, 0);
+          -o-transform: translate(-45px, 0);
+          transform: translate(-45px, 0); }
+      #abertura .container svg g:nth-child(2) > * {
+        opacity: 0; }
+    @media (max-width: 1600px), (max-height: 1000px) {
+      #abertura .container h1, #abertura .container svg {
+        width: 480px; } }
+    #abertura .container nav {
+      margin-top: 4em;
+      width: 480px;
+      display: -webkit-box;
+      display: -moz-box;
+      display: box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -moz-box-pack: justify;
+      box-pack: justify;
+      -webkit-justify-content: space-between;
+      -moz-justify-content: space-between;
+      -ms-justify-content: space-between;
+      -o-justify-content: space-between;
+      justify-content: space-between;
+      -ms-flex-pack: justify; }
+      #abertura .container nav a {
+        display: block;
+        padding: 1.5em;
+        width: 45%;
+        background-color: #222;
+        text-align: center;
+        font-size: 0.8em;
+        font-family: "Montserrat", sans-serif;
+        text-transform: uppercase;
+        color: #f9f9f9;
+        border: 1px solid rgba(249, 249, 249, 0.3); }
+        #abertura .container nav a:hover {
+          color: #dd1d47; }
 @-webkit-keyframes aparece {
   from {
     opacity: 0; }
@@ -586,131 +719,90 @@ header:not(#abertura) {
     -ms-transform: translate(0px, 0px);
     -o-transform: translate(0px, 0px);
     transform: translate(0px, 0px); } }
-    #abertura .container h1 {
-      color: #f9f9f9;
-      font-family: "Noto Serif", serif;
-      font-weight: normal;
-      font-size: 1em;
-      text-align: justify;
-      opacity: 0;
-      -webkit-animation: aparece 0.5s linear 3s 1 normal forwards;
-      -moz-animation: aparece 0.5s linear 3s 1 normal forwards;
-      animation: aparece 0.5s linear 3s 1 normal forwards; }
-      #abertura .container h1 span {
-        text-align: center;
-        display: block;
-        font-weight: bold; }
-    #abertura .container svg {
-      overflow: visible; }
-      #abertura .container svg path {
-        fill: #f9f9f9; }
-      #abertura .container svg g:nth-child(1) > * {
-        opacity: 0;
-        -webkit-animation: aparece 0.5s linear 0s 1 normal forwards, voltaProLugar 3s cubic-bezier(0.23, 1, 0.32, 1) 0s 1 normal forwards;
-        -moz-animation: aparece 0.5s linear 0s 1 normal forwards, voltaProLugar 3s cubic-bezier(0.23, 1, 0.32, 1) 0s 1 normal forwards;
-        animation: aparece 0.5s linear 0s 1 normal forwards, voltaProLugar 3s cubic-bezier(0.23, 1, 0.32, 1) 0s 1 normal forwards; }
-        #abertura .container svg g:nth-child(1) > *:nth-child(1) {
-          -webkit-transform: translate(45px, 0);
-          -moz-transform: translate(45px, 0);
-          -ms-transform: translate(45px, 0);
-          -o-transform: translate(45px, 0);
-          transform: translate(45px, 0);
-          -webkit-animation-delay: 1s;
-          -moz-animation-delay: 1s;
-          animation-delay: 1s; }
-        #abertura .container svg g:nth-child(1) > *:nth-child(2) {
-          -webkit-transform: translate(0, 45px);
-          -moz-transform: translate(0, 45px);
-          -ms-transform: translate(0, 45px);
-          -o-transform: translate(0, 45px);
-          transform: translate(0, 45px);
-          -webkit-animation-delay: 0.8s;
-          -moz-animation-delay: 0.8s;
-          animation-delay: 0.8s; }
-        #abertura .container svg g:nth-child(1) > *:nth-child(3) {
-          -webkit-transform: translate(0px, -45px);
-          -moz-transform: translate(0px, -45px);
-          -ms-transform: translate(0px, -45px);
-          -o-transform: translate(0px, -45px);
-          transform: translate(0px, -45px);
-          -webkit-animation-delay: 0.6s;
-          -moz-animation-delay: 0.6s;
-          animation-delay: 0.6s; }
-        #abertura .container svg g:nth-child(1) > *:nth-child(4) {
-          -webkit-transform: translate(0, 45px);
-          -moz-transform: translate(0, 45px);
-          -ms-transform: translate(0, 45px);
-          -o-transform: translate(0, 45px);
-          transform: translate(0, 45px);
-          -webkit-animation-delay: 0.4s;
-          -moz-animation-delay: 0.4s;
-          animation-delay: 0.4s; }
-        #abertura .container svg g:nth-child(1) > *:nth-child(5) {
-          -webkit-transform: translate(-45px, 0);
-          -moz-transform: translate(-45px, 0);
-          -ms-transform: translate(-45px, 0);
-          -o-transform: translate(-45px, 0);
-          transform: translate(-45px, 0);
-          -webkit-animation-delay: 0.2s;
-          -moz-animation-delay: 0.2s;
-          animation-delay: 0.2s; }
-      #abertura .container svg g:nth-child(2) > * {
-        opacity: 0;
-        -webkit-animation: aparece 0.5s linear 0s 1 normal forwards;
-        -moz-animation: aparece 0.5s linear 0s 1 normal forwards;
-        animation: aparece 0.5s linear 0s 1 normal forwards; }
-        #abertura .container svg g:nth-child(2) > *:nth-child(13) {
-          -webkit-animation-delay: 2s;
-          -moz-animation-delay: 2s;
-          animation-delay: 2s; }
-        #abertura .container svg g:nth-child(2) > *:nth-child(12) {
-          -webkit-animation-delay: 2.05s;
-          -moz-animation-delay: 2.05s;
-          animation-delay: 2.05s; }
-        #abertura .container svg g:nth-child(2) > *:nth-child(11) {
-          -webkit-animation-delay: 2.1s;
-          -moz-animation-delay: 2.1s;
-          animation-delay: 2.1s; }
-        #abertura .container svg g:nth-child(2) > *:nth-child(10) {
-          -webkit-animation-delay: 2.15s;
-          -moz-animation-delay: 2.15s;
-          animation-delay: 2.15s; }
-        #abertura .container svg g:nth-child(2) > *:nth-child(9) {
-          -webkit-animation-delay: 2.2s;
-          -moz-animation-delay: 2.2s;
-          animation-delay: 2.2s; }
-        #abertura .container svg g:nth-child(2) > *:nth-child(8) {
-          -webkit-animation-delay: 2.25s;
-          -moz-animation-delay: 2.25s;
-          animation-delay: 2.25s; }
-        #abertura .container svg g:nth-child(2) > *:nth-child(7) {
-          -webkit-animation-delay: 2.3s;
-          -moz-animation-delay: 2.3s;
-          animation-delay: 2.3s; }
-        #abertura .container svg g:nth-child(2) > *:nth-child(6) {
-          -webkit-animation-delay: 2.35s;
-          -moz-animation-delay: 2.35s;
-          animation-delay: 2.35s; }
-        #abertura .container svg g:nth-child(2) > *:nth-child(5) {
-          -webkit-animation-delay: 2.4s;
-          -moz-animation-delay: 2.4s;
-          animation-delay: 2.4s; }
-        #abertura .container svg g:nth-child(2) > *:nth-child(4) {
-          -webkit-animation-delay: 2.45s;
-          -moz-animation-delay: 2.45s;
-          animation-delay: 2.45s; }
-        #abertura .container svg g:nth-child(2) > *:nth-child(3) {
-          -webkit-animation-delay: 2.5s;
-          -moz-animation-delay: 2.5s;
-          animation-delay: 2.5s; }
-        #abertura .container svg g:nth-child(2) > *:nth-child(2) {
-          -webkit-animation-delay: 2.55s;
-          -moz-animation-delay: 2.55s;
-          animation-delay: 2.55s; }
-        #abertura .container svg g:nth-child(2) > *:nth-child(1) {
-          -webkit-animation-delay: 2.6s;
-          -moz-animation-delay: 2.6s;
-          animation-delay: 2.6s; }
+  #abertura.carregouFundo .container h1 {
+    -webkit-animation: aparece 0.5s linear 3s 1 normal forwards;
+    -moz-animation: aparece 0.5s linear 3s 1 normal forwards;
+    animation: aparece 0.5s linear 3s 1 normal forwards; }
+  #abertura.carregouFundo .container svg g:nth-child(1) > * {
+    -webkit-animation: aparece 0.5s linear 0s 1 normal forwards, voltaProLugar 3s cubic-bezier(0.23, 1, 0.32, 1) 0s 1 normal forwards;
+    -moz-animation: aparece 0.5s linear 0s 1 normal forwards, voltaProLugar 3s cubic-bezier(0.23, 1, 0.32, 1) 0s 1 normal forwards;
+    animation: aparece 0.5s linear 0s 1 normal forwards, voltaProLugar 3s cubic-bezier(0.23, 1, 0.32, 1) 0s 1 normal forwards; }
+    #abertura.carregouFundo .container svg g:nth-child(1) > *:nth-child(1) {
+      -webkit-animation-delay: 1s;
+      -moz-animation-delay: 1s;
+      animation-delay: 1s; }
+    #abertura.carregouFundo .container svg g:nth-child(1) > *:nth-child(2) {
+      -webkit-animation-delay: 0.8s;
+      -moz-animation-delay: 0.8s;
+      animation-delay: 0.8s; }
+    #abertura.carregouFundo .container svg g:nth-child(1) > *:nth-child(3) {
+      -webkit-animation-delay: 0.6s;
+      -moz-animation-delay: 0.6s;
+      animation-delay: 0.6s; }
+    #abertura.carregouFundo .container svg g:nth-child(1) > *:nth-child(4) {
+      -webkit-animation-delay: 0.4s;
+      -moz-animation-delay: 0.4s;
+      animation-delay: 0.4s; }
+    #abertura.carregouFundo .container svg g:nth-child(1) > *:nth-child(5) {
+      -webkit-animation-delay: 0.2s;
+      -moz-animation-delay: 0.2s;
+      animation-delay: 0.2s; }
+  #abertura.carregouFundo .container svg g:nth-child(2) > * {
+    -webkit-animation: aparece 0.5s linear 0s 1 normal forwards;
+    -moz-animation: aparece 0.5s linear 0s 1 normal forwards;
+    animation: aparece 0.5s linear 0s 1 normal forwards; }
+    #abertura.carregouFundo .container svg g:nth-child(2) > *:nth-child(13) {
+      -webkit-animation-delay: 2s;
+      -moz-animation-delay: 2s;
+      animation-delay: 2s; }
+    #abertura.carregouFundo .container svg g:nth-child(2) > *:nth-child(12) {
+      -webkit-animation-delay: 2.05s;
+      -moz-animation-delay: 2.05s;
+      animation-delay: 2.05s; }
+    #abertura.carregouFundo .container svg g:nth-child(2) > *:nth-child(11) {
+      -webkit-animation-delay: 2.1s;
+      -moz-animation-delay: 2.1s;
+      animation-delay: 2.1s; }
+    #abertura.carregouFundo .container svg g:nth-child(2) > *:nth-child(10) {
+      -webkit-animation-delay: 2.15s;
+      -moz-animation-delay: 2.15s;
+      animation-delay: 2.15s; }
+    #abertura.carregouFundo .container svg g:nth-child(2) > *:nth-child(9) {
+      -webkit-animation-delay: 2.2s;
+      -moz-animation-delay: 2.2s;
+      animation-delay: 2.2s; }
+    #abertura.carregouFundo .container svg g:nth-child(2) > *:nth-child(8) {
+      -webkit-animation-delay: 2.25s;
+      -moz-animation-delay: 2.25s;
+      animation-delay: 2.25s; }
+    #abertura.carregouFundo .container svg g:nth-child(2) > *:nth-child(7) {
+      -webkit-animation-delay: 2.3s;
+      -moz-animation-delay: 2.3s;
+      animation-delay: 2.3s; }
+    #abertura.carregouFundo .container svg g:nth-child(2) > *:nth-child(6) {
+      -webkit-animation-delay: 2.35s;
+      -moz-animation-delay: 2.35s;
+      animation-delay: 2.35s; }
+    #abertura.carregouFundo .container svg g:nth-child(2) > *:nth-child(5) {
+      -webkit-animation-delay: 2.4s;
+      -moz-animation-delay: 2.4s;
+      animation-delay: 2.4s; }
+    #abertura.carregouFundo .container svg g:nth-child(2) > *:nth-child(4) {
+      -webkit-animation-delay: 2.45s;
+      -moz-animation-delay: 2.45s;
+      animation-delay: 2.45s; }
+    #abertura.carregouFundo .container svg g:nth-child(2) > *:nth-child(3) {
+      -webkit-animation-delay: 2.5s;
+      -moz-animation-delay: 2.5s;
+      animation-delay: 2.5s; }
+    #abertura.carregouFundo .container svg g:nth-child(2) > *:nth-child(2) {
+      -webkit-animation-delay: 2.55s;
+      -moz-animation-delay: 2.55s;
+      animation-delay: 2.55s; }
+    #abertura.carregouFundo .container svg g:nth-child(2) > *:nth-child(1) {
+      -webkit-animation-delay: 2.6s;
+      -moz-animation-delay: 2.6s;
+      animation-delay: 2.6s; }
 
 main {
   padding-bottom: 80px; }
@@ -767,6 +859,14 @@ main {
         max-width: 100%; }
         main ul li blockquote p, main ol li blockquote p {
           width: 100%; }
+  main ol {
+    list-style-type: none; }
+    main ol li {
+      counter-increment: lista-numerada; }
+      main ol li:before {
+        content: counter(lista-numerada) ".";
+        font-weight: bold;
+        padding-left: 0.5em; }
   main h1, main h2, main h3, main h4, main h5 {
     width: 1110px;
     margin-right: auto;
@@ -1149,10 +1249,10 @@ footer {
         width: auto;
         vertical-align: baseline; }
       #sumario div.titulo .btsumario:hover {
-        color: #dd4b1d;
+        color: #dd1d47;
         cursor: pointer; }
         #sumario div.titulo .btsumario:hover svg rect {
-          fill: #dd4b1d; }
+          fill: #dd1d47; }
   #sumario a {
     font-size: 0.8em;
     color: #f9f9f9;
@@ -1188,7 +1288,7 @@ footer {
       flex-grow: 1;
       -ms-flex-positive: 1; }
     #sumario a:hover {
-      color: #dd4b1d; }
+      color: #dd1d47; }
     #sumario a.submenu:after {
       content: '';
       line-height: 0;
