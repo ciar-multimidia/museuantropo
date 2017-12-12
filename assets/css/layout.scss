@@ -80,7 +80,22 @@ a, a:link, a:hover, a:active, a:focus {
 
 
 .colunas{
-	@include display(flex);
+	@include flex(space-between);
+	@include tam-container();
+
+	.col-2 {
+		width: calc(50% - 20px);
+	}
+
+	.col-3 {
+		width: calc(33.3% - 20px);
+	}
+
+	.colfull {width: 100%;}
+
+	div p {
+		width: 100%;
+	}
 }
 
 ////////////////////////////////////// CABECALHO
