@@ -246,7 +246,7 @@ header:not(#abertura){
 				color: $cor4;
 				border: 1px solid transparentize($cor4, 0.7);
 				&:hover{
-					color: $cor2;
+					color: $cor3;
 				}
 			}
 		}
@@ -525,6 +525,21 @@ main {
 						}
 					}
 				}
+
+				&.paginacao{
+					padding: 0;
+					th{
+						padding: 0;
+						text-align: center;
+						a{
+							line-height: 1;
+							padding: 0.2em;
+							display: inline-block;
+							border: 1px solid $cor1;
+							border-width: 0px 1px;
+						}
+					}
+				}
 			}
 
 			th{
@@ -535,6 +550,9 @@ main {
 		tbody{
 			tr{
 				border-bottom: 1px solid transparentize(black, 0.8);
+				&.dn{
+					display: none;
+				}
 			}
 		}
 
@@ -748,11 +766,11 @@ footer {
 			}
 
 			&:hover {
-				color: $cor2;
+				color: $cor3;
 				cursor: pointer;
 				svg{
 					rect{
-						fill: $cor2;
+						fill: $cor3;
 					}
 				}
 			}
@@ -787,7 +805,7 @@ footer {
 		}
 
 		&:hover{
-			color: $cor2;
+			color: $cor3;
 		}
 
 		&.submenu{
@@ -807,7 +825,7 @@ footer {
 			}
 
 			&:hover:after{
-				background-image: url(../img/icon-seta-right-vermelho.svg);
+				background-image: url(../img/icon-seta-right-laranja.svg);
 			}
 		}
 
@@ -839,7 +857,7 @@ footer {
 			}
 
 			&:hover:before{
-				background-image: url(../img/icon-seta-left-vermelho.svg);
+				background-image: url(../img/icon-seta-left-laranja.svg);
 			}
 		}
 	}
