@@ -93,8 +93,8 @@ a, a:link, a:hover, a:active, a:focus {
 
 	.colfull {width: 100%;}
 
-	div p {
-		width: 100%;
+	div {
+		 p, h3 { width: 100%; }
 	}
 }
 
