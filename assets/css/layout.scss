@@ -904,7 +904,11 @@ button.botao-rodape{
 
 .container-notas-rodape {
 	font-size: 0.9em;
-	p {width: 100%;}
+	p {
+		width: 100%;
+
+		&:last-of-type {margin-bottom: 0}
+	}
 }
 
 .nota-rodape{
