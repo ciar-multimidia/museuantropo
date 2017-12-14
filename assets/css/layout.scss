@@ -23,22 +23,16 @@ $fonte-titulos: 'Montserrat',sans-serif;
 	width: 1110px;
 	margin-right: auto;
 	margin-left: auto;
-	position: relative;
 	padding-left: 10px;
 	padding-right: 10px;
-
-	* {position: relative;}
 }
 
 @mixin tam-conteudo() {
 	width: 800px;
 	margin-right: auto;
 	margin-left: auto;
-	position: relative;
 	padding-left: 10px;
 	padding-right: 10px;
-
-	* {position: relative;}
 }
 
 @mixin flex($dir) {
@@ -103,6 +97,7 @@ header:not(#abertura){
 	@include tam-container();
 	background:  url(../img/bg.jpg);
 	height: 170px;
+	position: relative;
 	margin-bottom: 35px;
 
 	&:before {
