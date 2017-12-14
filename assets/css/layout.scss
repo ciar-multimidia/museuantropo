@@ -128,7 +128,7 @@ header:not(#abertura){
 ////////////////////////////////////// ABERTURA
 
 #abertura{
-	z-index: 7;
+	z-index: 8;
 	padding: 4em 0 6em;
 	margin-bottom: 35px;
 	min-height: 100vh;
@@ -638,7 +638,7 @@ main {
 
 ////////////////////////////////////// FOOTER
 footer {
-	z-index: 5;
+	z-index: 6;
 	width: 100%;
 	height: 45px;
 	background: $cor1;
@@ -676,7 +676,7 @@ footer {
 
 
 #sumario{
-	z-index: 6;
+	z-index: 7;
 	width: 600px;
 	max-height: calc(100vh - 100px);
 	height: 45px;
@@ -696,7 +696,7 @@ footer {
 	overflow-y: hidden;
 
 	&.visivel{
-		z-index: 8;
+		z-index: 9;
 		height: 500px;
 		@include user-select(auto);
 		border: 1px solid rgba(255,255,255,0.2);
@@ -859,6 +859,111 @@ footer {
 			&:hover:before{
 				background-image: url(../img/icon-seta-left-laranja.svg);
 			}
+		}
+	}
+}
+
+
+////////////////////////////////////// NOTA RODAPE
+button.botao-rodape{
+	@include appearance(none);
+	outline: none;
+	display: inline;
+	height: auto;
+	width: auto;
+	margin: 0;
+	padding: 0.2em 0.3em;
+	font-family: $fonte-texto;
+	font-size: 0.9em;
+	line-height: 1;
+	background-color: hsl(0,0,90%);
+	border-radius: 2px;
+	border: 1px solid hsl(0,0,70%);
+	vertical-align: top;
+	&:before{
+		display: inline;
+		content: attr(data-numero);
+	}
+	&:hover{
+		cursor: pointer;
+	}
+
+	&.focus{
+		outline: none;
+	}
+
+	@include transition(all 0.1s linear);
+	@include transition-property(color, background-color, border);
+	&.ativado{
+		border-color: black;
+		background-color: black;
+		color: white;
+	}
+
+}
+
+.container-notas-rodape {
+	font-size: 0.9em;
+	p {width: 100%;}
+}
+
+.nota-rodape{
+	position: absolute;
+	font-size: 0.9em;
+	padding: 1em 1em 2em;
+	margin: 0 10px;
+	box-shadow: 0px 4px 15px rgba(0,0,0, 0.3);
+	background-color: #fff;
+	border-bottom-width: 4px;
+	width: auto;
+	max-width: 480px;
+	z-index: 5;
+	display: none;
+	opacity: 0;
+	@include transform(scale(0.5));
+	@include transition(all 0.2s ease-out);
+	@include transition-property(opacity, transform);
+
+
+	@include transform-origin(50% 100%);
+	&.origem-top{
+		@include transform-origin(50% 0%);
+
+	}
+
+	&.db{
+		display: block;
+	}
+	&.visivel{
+		opacity: 1;
+		@include transform(scale(1));
+		z-index: 4;
+	}
+
+	&.easing-saida{
+		@include transition-timing-function(ease-in);
+	}
+
+	button.fechar{
+		@include appearance(none);
+		outline: none;
+		margin: 0;
+		padding: 0;
+		background-color: transparent;
+		width: 12px;
+		height: 12px;
+		border: none;
+		display: block;
+		background-image: url('../img/icon-fechar.svg');
+		background-size: contain;
+		background-position: center center;
+
+		&:hover{
+			cursor: pointer;
+		}
+
+		& + *{
+			margin-top: 0.4em;
 		}
 	}
 }
