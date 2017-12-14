@@ -3,37 +3,6 @@ jQuery(document).ready(function($) {
 
 	if ($tabelas.length > 0) {
 		$tabelas.each(function(index, el) {
-
-			// adicionando a paginacao para tabelas gigantescas.
-
-			var nMaxRows = 50; // Numero maximo de linhas por 'pagina'
-			var nMinRowsPag = 20; // Uma pagina tem que ter no minimo esse numero de itens, caso contrario ela se mescla a anterior.
-			var $rows = $(el).find('tbody > tr');
-			var nRows = $rows.length;
-
-			if ( nRows > Math.floor(nMaxRows + nMinRowsPag) ) {
-				var nPaginas = Math.floor(nRows / nMaxRows);
-				if ( nRows % nMaxRows > nMinRowsPag ) {
-					nPaginas += 1;
-				}
-				$rows.addClass('dn').slice(0, nMaxRows).removeClass('dn');
-
-				// var colspanPags = 0;
-				// $rows.each(function(id2, el2) {
-				// 	$(el2).children().each(function(id3, el3) {
-				// 		if ($(el3).attr('attribute', 'value');) {}
-				// 	});
-				// });
-				
-
-				$(el).find('thead').append('<tr class="paginacao"><th colspan="30"></th></tr>');
-				var $containerPags = $(el).find('thead tr.paginacao th');
-				var htmlPags = []
-				for (var i = 0; i < nPaginas; i++) {
-					htmlPags.push('<a href="#">'+(i+1)+'</a>');
-				}
-				$containerPags.append(htmlPags.join(''));
-			}
 			
 			// Replicando o thead de cada tabela para se tornar o head fixo.
 			var $clonethead = $(el).find('caption, thead').clone();

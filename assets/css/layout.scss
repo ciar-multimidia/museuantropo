@@ -905,7 +905,7 @@ button.botao-rodape{
 		&:last-of-type {margin-bottom: 0}
 	}
 }
-
+ 
 .nota-rodape{
 	position: absolute;
 	font-size: 0.9em;
@@ -943,6 +943,10 @@ button.botao-rodape{
 		@include transition-timing-function(ease-in);
 	}
 
+	p, blockquote, ul, ol {
+		padding: 0;
+	}
+
 	button.fechar{
 		@include appearance(none);
 		outline: none;
@@ -966,3 +970,35 @@ button.botao-rodape{
 		}
 	}
 }
+
+
+////////////////////////////////////// MOSAICOS
+
+.mosaico{
+	margin: 0;
+	margin-bottom: 2em;
+	width: 100%;
+	
+	.scroller{
+		width: 100%;
+		white-space: nowrap;
+		overflow-x: scroll;
+		figure{
+			display: inline-block;
+			white-space: normal;
+			vertical-align: middle;
+			margin: 0;
+			padding: 0;
+			max-width: 1100px;
+			img{
+				width: auto;
+				height: calc(100vh - 150px);
+				max-width: 100%;
+				max-height: 700px;
+			}
+		}
+	}
+
+	
+}
+
