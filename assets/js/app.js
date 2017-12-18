@@ -181,7 +181,6 @@ jQuery(document).ready(function($) {
 		});
 	});
 
-	var rodapeAtual = 0;
 
 	var rodapeAtual = 0;
 
@@ -235,6 +234,23 @@ jQuery(document).ready(function($) {
 
 			rodapeAtual = thisNumero;
 		}
+	});
+
+
+	var $mosaicos = $('.mosaico');
+
+	$mosaicos.each(function(index, el) {
+		var $fotos = $(el).find('.scroller > figure');
+		var nFotos = $fotos.length;
+		var fotoAtual = 1;
+		$(el).append('<div class="thumbnails"></div>');
+		var contThumbs = $(el).find('.thumbnails');
+		$fotos.each(function(id2, el2) {
+			var srcImg = $(el2).find('img').attr('src');
+			var botaoThumb = $('<button style="background-image: url('+srcImg+')"></button>');
+			contThumbs.append(botaoThumb);
+		});
+		$(el).append('<div class="controls"><button disabled></button><button></button></div>');
 	});
 
 	
