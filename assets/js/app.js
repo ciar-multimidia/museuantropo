@@ -239,19 +239,125 @@ jQuery(document).ready(function($) {
 
 	var $mosaicos = $('.mosaico');
 
-	$mosaicos.each(function(index, el) {
-		var $fotos = $(el).find('.scroller > figure');
-		var nFotos = $fotos.length;
-		var fotoAtual = 1;
-		$(el).append('<div class="thumbnails"></div>');
-		var contThumbs = $(el).find('.thumbnails');
-		$fotos.each(function(id2, el2) {
-			var srcImg = $(el2).find('img').attr('src');
-			var botaoThumb = $('<button style="background-image: url('+srcImg+')"></button>');
-			contThumbs.append(botaoThumb);
-		});
-		$(el).append('<div class="controls"><button disabled></button><button></button></div>');
-	});
+	if ($mosaicos.length > 0) {
+		
+		var rodarMosaico = function($mosaicoEscolhido){
+			$mosaicoEscolhido.addClass('carregado');
 
-	
+			var $fotosContainer = $mosaicoEscolhido.find('.fotos');
+			var $fotosScroller = $fotosContainer.find('.scroller');
+			var $fotos = $fotosScroller.children('figure');
+			var nFotos = $fotos.length;
+			$mosaicoEscolhido.append('<div class="captions"><div class="scroller"></div></div><div class="thumbnails"></div>');
+			var $contThumbs = $mosaicoEscolhido.find('.thumbnails');
+			var $contCaptions = $mosaicoEscolhido.find('.captions');
+			$fotos.each(function(id2, el2) {
+				var srcImg = $(el2).find('img').attr('src');
+				var txtCaption = $(el2).find('figcaption').html();
+				var captionLista = $('<p>'+txtCaption+'</p>');
+				var botaoThumb = $('<button style="background-image: url('+srcImg+')"></button>');
+				$contThumbs.append(botaoThumb);
+				$contCaptions.children('.scroller').append(captionLista);
+			});
+
+			var $thumbnails = $contThumbs.children('button');
+			var $captions = $contCaptions.find('p');
+
+			$fotosContainer.append('<button></button><button></button>');
+
+			var $btPrev = $fotosContainer.children('button').eq(0);
+			var $btNext = $fotosContainer.children('button').eq(1);
+
+			var fotoAtual = 1;
+
+			var trocarSlide = function(){
+
+				console.log('Mosaico ' + ($mosaicos.index($mosaicoEscolhido)+1) + ' está na ' + fotoAtual+ 'ª foto');
+				var crossBrowserTransform = function(valor){
+					return {
+						'-webkit-transform': valor,
+						    '-ms-transform': valor,
+						        'transform': valor
+					};
+				}
+
+				var $fotoAtual = $fotos.eq(fotoAtual-1);
+				var posFotos = $fotosContainer.width()/2 - $fotoAtual.position().left - $fotoAtual.width()/2;
+
+				var $captionAtual = $captions.eq(fotoAtual-1);
+				var posCaptions = $contCaptions.width()/2  - $captionAtual.position().left - $captionAtual.width()/2;
+
+				$fotos.removeClass('atual');
+				$fotoAtual.addClass('atual');
+
+				$captions.removeClass('atual');
+				$captionAtual.addClass('atual');
+
+				$thumbnails.removeClass('atual').eq(fotoAtual-1).addClass('atual');
+
+				$fotosScroller.css(crossBrowserTransform('translateX('+posFotos+'px)'));
+				$contCaptions.children('.scroller').css(crossBrowserTransform('translateX('+posCaptions+'px)'));
+				
+				
+				if (fotoAtual === 1) {
+					$btPrev.attr('disabled', 'disabled');
+					$btNext.removeAttr('disabled');
+				} else if(fotoAtual === nFotos) {
+					$btNext.attr('disabled', 'disabled');
+					$btPrev.removeAttr('disabled');
+				} else{
+					$btNext.removeAttr('disabled');
+					$btPrev.removeAttr('disabled');
+				}
+			}
+
+			$btPrev.on('click', function(event) {
+				if (fotoAtual > 1) {
+					fotoAtual -= 1;
+					trocarSlide();
+				}
+			});
+
+			$btNext.on('click', function(event) {
+				if (fotoAtual < nFotos) {
+					fotoAtual += 1;
+					trocarSlide();
+				}
+			});
+
+			$thumbnails.on('click', function(event) {
+				fotoAtual = $thumbnails.index($(this))+1;
+				trocarSlide();
+			});
+
+			trocarSlide();
+		}
+
+		$mosaicos.each(function(index, el) {
+			var $loading = $('<div class="loading"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>')
+			$(el).append($loading);
+			var $esseMosaico = $(el);
+			var imgsCarregadas = 0;
+			var $imgsMosaico = $(el).find('img');
+			var nImgsMosaico = $imgsMosaico.length;
+
+			var imgsForLoadEvent = [];
+			$imgsMosaico.each(function(index2, el2) {
+				imgsForLoadEvent[index2] = new Image();
+				imgsForLoadEvent[index2].src = $(el2).attr('src');
+			});
+
+			for (var i = 0; i < imgsForLoadEvent.length; i++) {
+				imgsForLoadEvent[i].onload = function(){
+					imgsCarregadas += 1;
+					if (imgsCarregadas === imgsForLoadEvent.length) {
+						$loading.remove();
+						rodarMosaico($esseMosaico);
+					}
+				}
+			}
+		});
+
+		
+	}
 });

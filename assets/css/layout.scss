@@ -99,6 +99,8 @@ header:not(#abertura){
 	height: 170px;
 	position: relative;
 	margin-bottom: 35px;
+	@include display(flex);
+	@include align-items(center);
 
 	&:before {
 		content: "";
@@ -111,12 +113,20 @@ header:not(#abertura){
 	}
 
 	a.marca {
-		top: 50%;
+		position: relative;
 		display: block;
-		position: absolute;
-		@include transform(translateY(-50%));
-
 		img {max-height: 130px;}
+	}
+	h1{
+		position: relative;
+		color: $cor4;
+		// line-height: 1.4;
+		font-size: 0.9em;
+		font-family: $fonte-titulos;
+		text-transform: uppercase;
+		font-weight: normal;
+		margin-left: 2em;
+		padding-bottom: 1em;
 	}
 }
 
@@ -998,29 +1008,87 @@ button.botao-rodape{
 	margin-bottom: 2em;
 	width: 100%;
 	position: relative;
-	background-color: white;
-	
-	.scroller{
-		width: 100%;
-		white-space: nowrap;
-		overflow-x: scroll;
-		figure{
-			display: inline-block;
-			white-space: normal;
-			vertical-align: middle;
-			margin: 0;
-			margin-right: 1em;
-			padding: 0;
-			max-width: 1100px;
-			img{
-				width: auto;
-				height: calc(100vh - 250px);
-				max-width: 100%;
-				max-height: 600px;
+	opacity: 0.2;
+	@include transition(opacity 1s linear);
+	// background-color: white;
+	&.carregado{
+		opacity: 1;
+	}
+
+	.loading{
+		position: absolute;
+		top: 50%; left: 50%;
+		@include transform(translate(-50%, -50%));
+		@include display(flex);
+		@include justify-content(space-between);
+		@include align-items(center);
+		width: 80px;
+		height: 40px;
+		div{
+			width: 6px;
+			height: 20px;
+			background-color: $cor1;
+			@include animation (carregando 1s ease-in-out 0s infinite normal forwards);
+			@for $i from 1 through 8 {
+				&:nth-child(#{$i}) {
+					animation-delay: #{($i - 1)*0.1}s;
+				}
+			}
+		}
+
+		@include keyframes(carregando){
+			50%{
+				height: 40px;
 			}
 		}
 	}
-	div.controls{
+
+	.fotos{
+		width: 100%;
+		overflow-x: hidden;
+		overflow-y: visible;
+		position: relative;
+
+		.scroller{
+			// overflow-y: visible;
+			white-space: nowrap;
+			@include transition(transform 0.5s ease-in-out);
+			position: relative;
+
+			figure{
+				overflow-y: visible;
+				@include transition(all 0.5s ease-in-out);
+				@include transition-property(opacity, transform, filter);
+				opacity: 0.3;
+				filter: grayscale(1);
+				display: inline-block;
+				white-space: normal;
+				vertical-align: middle;
+				margin: 0;
+				margin-right: 1em;
+				padding: 0;
+				max-width: 1100px;
+
+				&.atual{
+					opacity: 1;
+					filter: grayscale(0);
+				}
+				img{
+					display: block;
+					width: auto;
+					height: calc(100vh - 360px);
+					max-width: 100%;
+					max-height: 500px;
+					border: 1px solid hsl(0,0%,60%);
+				}
+
+				figcaption{
+					display: none;
+				}
+			}
+		}
+
+
 		button{
 			@include appearance(none);
 			padding: 0;
@@ -1028,7 +1096,8 @@ button.botao-rodape{
 			border: none;
 			width: 45px;
 			height: 45px;
-			background-color: transparentize($cor1, 0.2);
+			background-color: transparentize($cor1, 0);
+			border: 1px solid $cor4;
 			@include transition(all 0.2s linear);
 			@include transition-property(background-color, opacity);
 			background-position: center;
@@ -1046,6 +1115,10 @@ button.botao-rodape{
 				width: auto;
 			}
 
+			&:focus{
+				outline: 1px solid white;
+			}
+
 			&[disabled]{
 				opacity: 0;
 			}
@@ -1060,7 +1133,7 @@ button.botao-rodape{
 				background-image: url(../img/icon-seta-right.svg);
 			}
 
-			&:hover{
+			&:hover:not([disabled]){
 				cursor: pointer;
 				background-color: $cor1;
 				&:nth-of-type(1){background-image: url(../img/icon-seta-left-laranja.svg);}
@@ -1069,24 +1142,83 @@ button.botao-rodape{
 
 		}
 	}
+	
+	
+	div.controls{
+		
+	}
+
+	div.captions{
+		margin-top: 0.6em;
+		width: 100%;
+		// background-color: hsl(0,0%,80%);
+
+		.scroller{
+			white-space: nowrap;
+			@include transition(transform 0.5s ease-in-out);
+			position: relative;
+
+			p{
+				margin: 0;
+				padding: 0;
+				// color: $cor4;
+				@include transition(all 0.5s ease-in-out);
+				@include transition-property(transform, opacity);
+				opacity: 0;
+				font-size: 0.8em;
+				line-height: 1.4;
+				white-space: normal;
+				vertical-align: top;
+				display: inline-block;
+				width: auto;
+				max-width: 800px;
+				margin-right: 1em;
+				&.atual{
+					opacity: 1;
+				}
+			}
+		}
+
+		
+	}
 
 	div.thumbnails{
-		margin: 0 auto;
+		margin: 2em auto 0;
 		width: 100%;
 		@include display(flex);
 		@include justify-content(center);
+		@include align-items(center);
 		button{
 			display: inline-block;
 			width: 40px;
-			height: 40px;
+			height: 60px;
 			overflow: hidden;
 			@include appearance(none);
 			padding: 0;
-			margin: 0;
-			border: none;
+			margin: 0 4px;
+			@include transition(all 0.2s ease-in-out);
+			@include transition-property(transform, border,width,height,margin);
+			border: 1px solid hsl(0,0%,60%);
 			background-color: none;
 			background-size: cover;
 			background-position: center;
+			vertical-align: middle;
+
+			&:focus{
+				outline: 1px solid hsl(0,0%,80%);
+
+			}
+
+			&.atual{
+				width: 90px;
+				margin: 0 12px;
+				border: 1px solid hsl(0,0%,20%);
+
+
+			}
+			&:hover{
+				cursor: pointer;
+			}
 
 		}
 	}
