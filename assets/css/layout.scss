@@ -370,6 +370,11 @@ main {
 		// hyphens: auto;
 	}
 
+	a[href*='http'], a[href*='www']{
+		overflow-wrap: break-word;
+		word-break: break-all;
+	}
+
 	blockquote {
 		padding-left: 100px;
 		opacity: 0.9;
@@ -494,7 +499,7 @@ main {
 
 
 		caption{
-			width: 100%;
+			// width: 100%;
 			text-align: left;
 			padding: 0.5em 0;
 		}
@@ -638,6 +643,25 @@ main {
 				width: 250px;
 				height: 250px;
 				margin-bottom: 1em;
+			}
+		}
+
+		&.anexos{
+			a{
+				background-color: $cor1;
+				background-size: auto 50%;
+				background-position: center;
+				background-repeat: no-repeat;
+				&:before{
+					background-color: transparentize($cor4, 0.7);
+				}
+				&:hover{
+					background-size: auto 52%;
+					&:before{
+						background-color: transparentize($cor3, 0.5);
+
+					}
+				}
 			}
 		}
 	}

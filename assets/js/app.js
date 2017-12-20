@@ -16,7 +16,7 @@ jQuery(document).ready(function($) {
 		var $theadsFixos = $('.thead-fixo');
 		var posicoesTabelas = [];
 		var posicionarTheadsFixo = function(){
-			console.log('reposicionado');
+			// console.log('reposicionado');
 			$tabelas.each(function(index, el) {
 				var $tableEquiv = $theadsFixos.eq(index);
 				var $theadEquiv = $tableEquiv.children('thead');
@@ -272,7 +272,7 @@ jQuery(document).ready(function($) {
 
 			var trocarSlide = function(){
 
-				console.log('Mosaico ' + ($mosaicos.index($mosaicoEscolhido)+1) + ' está na ' + fotoAtual+ 'ª foto');
+				// console.log('Mosaico ' + ($mosaicos.index($mosaicoEscolhido)+1) + ' está na ' + fotoAtual+ 'ª foto');
 				var crossBrowserTransform = function(valor){
 					return {
 						'-webkit-transform': valor,
